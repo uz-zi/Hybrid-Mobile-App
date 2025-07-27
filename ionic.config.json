@@ -1,0 +1,7 @@
+{
+  "name": "FieldServiceApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
