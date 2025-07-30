@@ -1,5 +1,5 @@
 import {
-  IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonText, IonImg, IonCard, IonCardHeader, IonCardTitle, IonCardContent
+  IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonText, IonImg, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButtons, IonMenuButton
 } from '@ionic/react';
 import React from 'react';
 import './about.css';
@@ -9,6 +9,9 @@ const About: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
+          <IonButtons slot="start">
+            <IonMenuButton />
+          </IonButtons>
           <IonTitle>About</IonTitle>
         </IonToolbar>
       </IonHeader>

@@ -1,15 +1,39 @@
 import {
-  IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonLabel, IonImg
+  IonPage,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonList,
+  IonItem,
+  IonLabel,
+  IonImg,
+  IonButtons,
+  IonButton,
+  IonIcon
 } from '@ionic/react';
 import React from 'react';
+import { logOutOutline } from 'ionicons/icons';
 import { submissions } from '../data/submissionData';
+import { useHistory } from 'react-router-dom';
 
 const AdminPage: React.FC = () => {
+   const history = useHistory();
+   const handleLogout = () => {
+    localStorage.clear();
+    history.replace('/login');
+  };
+
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
           <IonTitle>Admin Submissions</IonTitle>
+          <IonButtons slot="end">
+            <IonButton onClick={handleLogout}>
+              <IonIcon icon={logOutOutline} />
+            </IonButton>
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
@@ -27,7 +51,7 @@ const AdminPage: React.FC = () => {
                     style={{ border: 0 }}
                   />
                 </div>
-                <IonImg src={sub.image} style={{ marginTop: 10, borderRadius: 8 }} />
+                <IonImg src={sub.image} style={{ marginTop: 10, borderRadius: 8, height: '200px', objectFit: 'contain' }} />
               </IonLabel>
             </IonItem>
           ))}
