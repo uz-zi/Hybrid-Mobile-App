@@ -49,9 +49,9 @@ const Login: React.FC = () => {
         <IonItem>
           <IonLabel position="floating">Username</IonLabel>
           <IonInput
-  value={username}
-  onIonInput={(e) => setUsername(e.detail.value ?? '')}
-/>
+            value={username}
+            onIonInput={(e) => setUsername(e.detail.value ?? '')}
+          />
 
         </IonItem>
 

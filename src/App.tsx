@@ -8,6 +8,8 @@ import AdminPage from './pages/AdminPage';
 import About from './pages/about';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
+import { StatusBar, Style } from '@capacitor/status-bar';
+import { useEffect } from 'react';
 
 /* Basic CSS for apps built with Ionic */
 import '@ionic/react/css/normalize.css';
@@ -38,19 +40,26 @@ import './theme/variables.css';
 
 setupIonicReact();
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route path="/login" component={Login} exact />
-        <Route path="/signup" component={Signup} exact />
-        <Route path="/home" component={Home} exact />
-        <Route path="/admin" component={AdminPage} exact />
-        <Route path="/about" component={About} exact />
-        <Redirect exact from="/" to="/login" />
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
-);
+const App: React.FC = () => {
+  useEffect(() => {
+    StatusBar.setOverlaysWebView({ overlay: false });
+    StatusBar.setStyle({ style: Style.Light });
+  }, []);
+
+  return (
+    <IonApp>
+      <IonReactRouter>
+        <IonRouterOutlet>
+          <Route path="/login" component={Login} exact />
+          <Route path="/signup" component={Signup} exact />
+          <Route path="/home" component={Home} exact />
+          <Route path="/admin" component={AdminPage} exact />
+          <Route path="/about" component={About} exact />
+          <Redirect exact from="/" to="/login" />
+        </IonRouterOutlet>
+      </IonReactRouter>
+    </IonApp>
+  );
+};
 
 export default App;
